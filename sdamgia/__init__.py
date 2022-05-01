@@ -3,6 +3,7 @@ import os.path
 
 from bs4 import BeautifulSoup
 import requests
+from requests_file import FileAdapter
 import threading
 from os import path, remove
 
@@ -29,7 +30,8 @@ class SdamGIA:
         self.tesseract_src = 'tesseract'
         self.html2img_chrome_path = 'chrome'
         self.grabzit_auth = {'AppKey': 'grabzit', 'AppSecret': 'grabzit'}
-
+        self.requests_session = requests.session()
+        self.requests_session.mount('file://', LocalFileAdapter())
     def get_problem_by_id(self,
                           subject, id,
                           img=None, path_to_img=None, path_to_tmp_html=''):
@@ -179,8 +181,8 @@ class SdamGIA:
         :param testid: Идентификатор теста
         :type testid: str
         """
-        doujin_page = requests.get(
-            f'{self._SUBJECT_BASE_URL[subject]}/test?id={testid}')
+        doujin_page = requests_session.get(
+            f'file://E:/damnn.htm')
         soup = BeautifulSoup(doujin_page.content, 'html.parser')
         return [i.text.split()[-1] for i in soup.find_all('span', {'class': 'prob_nums'})]
 
