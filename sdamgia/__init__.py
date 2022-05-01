@@ -12,7 +12,7 @@ class SdamGIA:
     def __init__(self):
         self._BASE_DOMAIN = 'sdamgia.ru'
         self._SUBJECT_BASE_URL = {
-            'math': f'https://math-ege.{self._BASE_DOMAIN}', 'mathb': f'https://mathb-ege.{self._BASE_DOMAIN}',
+            'math': f'https://math-oge.{self._BASE_DOMAIN}', 'mathb': f'https://mathb-ege.{self._BASE_DOMAIN}',
             'phys': f'https://phys-ege.{self._BASE_DOMAIN}',
             'inf': f'https://inf-ege.{self._BASE_DOMAIN}',
             'rus': f'https://rus-ege.{self._BASE_DOMAIN}',
