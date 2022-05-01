@@ -181,7 +181,7 @@ class SdamGIA:
         :param testid: Идентификатор теста
         :type testid: str
         """
-        doujin_page = requests_session.get(
+        doujin_page = self.requests_session.get(
             f'file://E:/damnn.htm')
         soup = BeautifulSoup(doujin_page.content, 'html.parser')
         return [i.text.split()[-1] for i in soup.find_all('span', {'class': 'prob_nums'})]
