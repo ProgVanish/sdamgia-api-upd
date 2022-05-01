@@ -31,7 +31,7 @@ class SdamGIA:
         self.html2img_chrome_path = 'chrome'
         self.grabzit_auth = {'AppKey': 'grabzit', 'AppSecret': 'grabzit'}
         self.requests_session = requests.session()
-        self.requests_session.mount('file://', LocalFileAdapter())
+        self.requests_session.mount('file://', FileAdapter())
     def get_problem_by_id(self,
                           subject, id,
                           img=None, path_to_img=None, path_to_tmp_html=''):
